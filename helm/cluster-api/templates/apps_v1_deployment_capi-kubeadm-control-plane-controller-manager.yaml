@@ -30,11 +30,11 @@ spec:
       - args:
         - --metrics-bind-addr=0.0.0.0:8080
         - --feature-gates=ClusterTopology=true
-        - --watch-filter=capi
+        - --watch-filter={{ .Values.watchFilter }}
         - --v=0
         command:
         - /manager
-        image: '{{ .Values.images.controlplane.name }}:{{ .Values.images.tag }}'
+        image: '{{.Values.images.controlplane.name}}:{{.Values.images.tag}}'
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
