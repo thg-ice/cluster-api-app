@@ -28,12 +28,17 @@ spec:
         effect: NoSchedule
       containers:
       - name: kubectl
-        image: "{{ .Values.images.domain }}/giantswarm/docker-kubectl:latest"
+        image: "{{ .Values.images.domain }}/giantswarm/docker-kubectl:1.24.2"
         command:
         - sh
         - -c
         - |
           set -o errexit ; set -o xtrace ; set -o nounset
+
+          for crd in $(kubectl get crds -o json | jq -r '.items[] | select(.metadata.name | test("cluster.x-k8s.io")) | select(.status.storedVersions | index("v1alpha2")) | .metadata.name'); do
+            index=$(kubectl get crds ${crd} -o json | jq -r '.status.storedVersions | index("v1alpha2")')
+            kubectl patch crd ${crd} --type=json --subresource='status' -p="[{\"op\":\"remove\", \"path\":\"/status/storedVersions/${index}\"}]"
+          done
 
           # piping stderr to stdout means kubectl's errors are surfaced
           # in the pod's logs.
