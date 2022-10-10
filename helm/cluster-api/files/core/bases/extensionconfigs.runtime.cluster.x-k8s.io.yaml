@@ -15,7 +15,7 @@ metadata:
     clusterctl.cluster.x-k8s.io: ""
     clusterctl.cluster.x-k8s.io/move: ""
     helm.sh/chart: cluster-api
-  name: clusterresourcesets.addons.cluster.x-k8s.io
+  name: extensionconfigs.runtime.cluster.x-k8s.io
 spec:
   conversion:
     strategy: Webhook
@@ -30,39 +30,24 @@ spec:
       conversionReviewVersions:
         - v1
         - v1beta1
-  group: addons.cluster.x-k8s.io
+  group: runtime.cluster.x-k8s.io
   names:
     categories:
       - cluster-api
-    kind: ClusterResourceSet
-    listKind: ClusterResourceSetList
-    plural: clusterresourcesets
-    singular: clusterresourceset
-  scope: Namespaced
+    kind: ExtensionConfig
+    listKind: ExtensionConfigList
+    plural: extensionconfigs
+    shortNames:
+      - ext
+    singular: extensionconfig
+  scope: Cluster
   versions:
-    - name: v1alpha3
-      schema: {}
-      served: true
-      storage: false
-      subresources:
-        status: {}
     - additionalPrinterColumns:
-        - description: Time duration since creation of ClusterResourceSet
+        - description: Time duration since creation of ExtensionConfig
           jsonPath: .metadata.creationTimestamp
           name: Age
           type: date
-      name: v1alpha4
-      schema: {}
-      served: true
-      storage: false
-      subresources:
-        status: {}
-    - additionalPrinterColumns:
-        - description: Time duration since creation of ClusterResourceSet
-          jsonPath: .metadata.creationTimestamp
-          name: Age
-          type: date
-      name: v1beta1
+      name: v1alpha1
       schema: {}
       served: true
       storage: true
