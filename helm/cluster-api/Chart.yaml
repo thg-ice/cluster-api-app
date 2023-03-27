@@ -1,5 +1,5 @@
 apiVersion: v2
-appVersion: 1.3.5
+appVersion: [[ .Version ]]
 
 name: cluster-api
 description: "Helm chart for cluster api."
