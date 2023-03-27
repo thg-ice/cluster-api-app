@@ -10,6 +10,19 @@
                 }
             }
         },
+        "hooks": {
+            "type": "object",
+            "properties": {
+                "images": {
+                    "type": "object",
+                    "properties": {
+                        "domain": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "images": {
             "type": "object",
             "properties": {
