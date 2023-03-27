@@ -1,8 +1,11 @@
-apiVersion: "v1"
+apiVersion: v2
+appVersion: [[ .AppVersion ]]
+
 name: cluster-api
 description: "Helm chart for cluster api."
-home: "https://github.com/giantswarm/cluster-api-app"
-version: "[[ .Version ]]"
-appVersion: "[[ .AppVersion ]]"
-annotations:
-  config.giantswarm.io/version: 1.x.x
+home: "https://github.com/thg-ice/cluster-api-app"
+engine: gotpl
+version: [[ .Version ]]
+
+sources:
+- https://github.com/thg-ice/cluster-api-app
