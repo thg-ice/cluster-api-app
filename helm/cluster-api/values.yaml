@@ -10,10 +10,6 @@ images:
     name: cluster-api/kubeadm-control-plane-controller
   tag: v1.3.5
 
-project:
-  branch: "[[ .Branch ]]"
-  commit: "[[ .SHA ]]"
-
 watchFilter: capi
 
 # We install CRDs through a Job with the helm specific crd folder.

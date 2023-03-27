@@ -48,17 +48,6 @@
         "name": {
             "type": "string"
         },
-        "project": {
-            "type": "object",
-            "properties": {
-                "branch": {
-                    "type": "string"
-                },
-                "commit": {
-                    "type": "string"
-                }
-            }
-        },
         "watchFilter": {
             "type": "string"
         }
