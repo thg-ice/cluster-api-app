@@ -10,6 +10,19 @@
                 }
             }
         },
+        "hooks": {
+            "type": "object",
+            "properties": {
+                "images": {
+                    "type": "object",
+                    "properties": {
+                        "domain": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "images": {
             "type": "object",
             "properties": {
@@ -47,17 +60,6 @@
         },
         "name": {
             "type": "string"
-        },
-        "project": {
-            "type": "object",
-            "properties": {
-                "branch": {
-                    "type": "string"
-                },
-                "commit": {
-                    "type": "string"
-                }
-            }
         },
         "watchFilter": {
             "type": "string"

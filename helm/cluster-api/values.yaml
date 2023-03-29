@@ -1,18 +1,18 @@
 name: cluster-api
 
-images:
-  domain: quay.io
-  core:
-    name: giantswarm/cluster-api-controller
-  bootstrap:
-    name: giantswarm/kubeadm-bootstrap-controller
-  controlplane:
-    name: giantswarm/kubeadm-control-plane-controller
-  tag: v1.3.2
+hooks:
+  images:
+    domain: quay.io
 
-project:
-  branch: "[[ .Branch ]]"
-  commit: "[[ .SHA ]]"
+images:
+  domain: registry.k8s.io
+  core:
+    name: cluster-api/cluster-api-controller
+  bootstrap:
+    name: cluster-api/kubeadm-bootstrap-controller
+  controlplane:
+    name: cluster-api/kubeadm-control-plane-controller
+  tag: v1.3.5
 
 watchFilter: capi
 
